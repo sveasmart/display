@@ -1,8 +1,9 @@
 var rpc = require('json-rpc2');
-
+var config = require('config')
 var display = null
 var buttons = null
 
+const displayRpcPort = config.get("displayRpcPort")
 
 var server = rpc.Server.$create({
   'websocket': true, // is true by default
@@ -11,30 +12,8 @@ var server = rpc.Server.$create({
   }
 });
 
-function add(args, opt, callback) {
-  callback(null, args[0] + args[1]);
-}
-
-function writeText(args, opt, callback) {
-  const text = args[0]
-  console.log("writeText(" + text + ")")
-  if (display) {
-    display.writeText(text)
-  } else {
-    console.log("no display")
-  }
-  callback(null, "Got " + text)
-}
-
-server.expose('add', add);
-server.expose('writeText', writeText);
-
-// you can expose an entire object as well: 
-
-
-
 // listen creates an HTTP server on localhost only 
-server.listen(8000, 'localhost');
+server.listen(displayRpcPort, 'localhost');
 
 
 function buttonPressed(buttonId) {
@@ -68,6 +47,27 @@ try {
 } catch (err) {
   console.log("Couldn't listen to the display buttons, so I'll skip those.", err)
 }
+
+function expose(methodName) {
+  server.expose(methodName, (args, opts, callback) => {
+    try {
+      result = display[methodName](...args)
+      callback(null, result)
+    } catch (err) {
+      callback(err)
+    }
+  });
+
+}
+expose("showTab")
+expose("clearAllTabs")
+expose("clear")
+expose("clearRow")
+expose("setQrCode")
+expose("setImage")
+expose("setTexts")
+expose("writeText")
+
 
 
 console.log("Listening on port 8000")
