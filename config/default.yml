@@ -1,1 +1,4 @@
 displayRpcPort: 7890
+
+button0Tab: "home"
+button1Tab: "networkInfo"
