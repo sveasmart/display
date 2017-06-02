@@ -3,8 +3,10 @@ var config = require('./config')
 
 var display = null
 var buttons = null
+var lastButtonPressTime = new Date()
 
 function buttonPressed(buttonId) {
+  lastButtonPressTime = new Date()
   let tab = config["button" + buttonId + "Tab"]
   if (tab && display) {
     console.log("Button " + buttonId + " pressed. Showing tab " + tab + ".")
@@ -83,8 +85,30 @@ function exposeDisplayMethod(server, methodName) {
   });
 }
 
+function showStartupMessage() {
+  if (display && config.startupMessage) {
+    display.writeText(config.startupMessage)
+  }
+}
+
+function returnToDefaultTabWhenNeeded() {
+  if (display && config.defaultTab && config.returnToDefaultAfterXSeconds) {
+    //Every seconds we check if it is time to show the default tab because of inactivity.
+    setInterval(function() {
+      if (display.getTab() != config.defaultTab) {
+        const millisecondsSinceLastButtonPress = new Date().getTime() - lastButtonPressTime.getTime()
+        if (millisecondsSinceLastButtonPress > config.returnToDefaultAfterXSeconds * 1000) {
+          display.showTab(config.defaultTab)
+        }
+      }
+    }, 1000)
+  }
+}
+
 initDisplayAndButtons()
+showStartupMessage()
 listenToButtons()
 startRpcServerAndExposeDisplayMethods()
+returnToDefaultTabWhenNeeded()
 
 console.log("Display RPC server up and running on port " + config.displayRpcPort)

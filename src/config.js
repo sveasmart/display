@@ -9,6 +9,9 @@ loadConfig("displayRpcPort")
 loadConfig("button0Tab", null)
 loadConfig("button1Tab", null)
 loadConfig("button2Tab", null)
+loadConfig("startupMessage", null)
+loadConfig("defaultTab", "default")
+loadConfig("returnToDefaultAfterXSeconds", null)
 
 /**
  * Loads the given config param and stores it

@@ -1,4 +1,17 @@
 displayRpcPort: 7890
 
-button0Tab: "home"
-button1Tab: "networkInfo"
+# Which tab to show if a button is pressed
+# Or empty if the button should be ignored.
+button0Tab: "default"
+button1Tab: "tab1"
+button2Tab: "tab2"
+
+# If a startupMessage is set, then this message
+# is shown on the default tab on startup
+startupMessage: "Hi there!"
+
+# If a defaultTab and returnToDefaultAfterXSeconds is set,
+# then it will automatically show that tab if no button is pressed
+# in X seconds.
+defaultTab: "default"
+returnToDefaultAfterXSeconds: 3
