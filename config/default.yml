@@ -1,4 +1,4 @@
-displayRpcPort: 7890
+displayRpcPort: 5000
 
 # Which tab to show if a button is pressed
 # Or empty if the button should be ignored.
