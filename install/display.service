@@ -1,0 +1,13 @@
+# systemd service script for the display
+# https://www.freedesktop.org/software/systemd/man/bootup.html
+[Unit]
+Description=Display
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/apps/display/start.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
