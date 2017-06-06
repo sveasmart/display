@@ -15,3 +15,8 @@ startupMessage: "Hi there!"
 # in X seconds.
 defaultTab: "default"
 returnToDefaultAfterXSeconds: 3
+
+# If true, all display calls are logged to console,
+# even if there is a real display connected.
+# Note that if no display is connected, then all calls are logged to the console anyway
+logCalls: false

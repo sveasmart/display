@@ -12,6 +12,7 @@ loadConfig("button2Tab", null)
 loadConfig("startupMessage", null)
 loadConfig("defaultTab", "default")
 loadConfig("returnToDefaultAfterXSeconds", null)
+loadConfig("logCalls")
 
 /**
  * Loads the given config param and stores it

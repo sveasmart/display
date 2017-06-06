@@ -71,11 +71,20 @@ function exposeDisplayMethod(server, methodName) {
   server.expose(methodName, (args, opts, callback) => {
     if (display) {
       try {
+        if (config.logCalls) {
+          if (args) {
+            console.log(methodName + "(" + args.join(", ") + ")")
+          } else {
+            console.log(methodName + "()")
+          }
+        }
+
         //Call the corresponoding method on the display object,
         //and flatten out the args array into a parameter list
         result = display[methodName](...args)
         callback(null, result)
       } catch (err) {
+        console.log("Something went wrong!", err)
         callback(err)
       }
     } else {
