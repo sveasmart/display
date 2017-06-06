@@ -1,5 +1,5 @@
 var rpc = require('json-rpc2');
-var config = require('./config')
+var config = require('./meter-config').loadConfig()
 
 var display = null
 var buttons = null
@@ -120,4 +120,6 @@ listenToButtons()
 startRpcServerAndExposeDisplayMethods()
 returnToDefaultTabWhenNeeded()
 
+console.log("logCalls = " + config.logCalls)
 console.log("Display RPC server up and running on port " + config.displayRpcPort)
+
