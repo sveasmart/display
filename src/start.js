@@ -4,6 +4,7 @@ var config = require('./meter-config').loadConfig()
 var display = null
 var buttons = null
 var lastButtonPressTime = new Date()
+var firstCallDone = false
 
 function buttonPressed(buttonId) {
   lastButtonPressTime = new Date()
@@ -70,6 +71,12 @@ function startRpcServerAndExposeDisplayMethods() {
 function exposeDisplayMethod(server, methodName) {
   server.expose(methodName, (args, opts, callback) => {
     if (display) {
+      if (!firstCallDone) {
+        //This is the first call. Clear the startMessage so we start with a nice fresh empty screen.
+        firstCallDone = true
+        display.clear()
+      }
+      
       try {
         if (config.logCalls) {
           if (args) {

@@ -7,7 +7,7 @@ button1Tab: "tab1"
 button2Tab: "tab2"
 
 # If a startupMessage is set, then this message
-# is shown on the default tab on startup
+# is shown on the default tab on startup, and cleared on first write.
 startupMessage: "Starting up..."
 
 # If a defaultTab and returnToDefaultAfterXSeconds is set,
