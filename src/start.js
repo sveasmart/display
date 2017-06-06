@@ -54,8 +54,8 @@ function startRpcServerAndExposeDisplayMethods() {
     }
   });
 
-  // listen creates an HTTP server on localhost only
-  server.listen(config.displayRpcPort, 'localhost');
+  // listen creates an HTTP server on 127.0.0.1 only
+  server.listen(config.displayRpcPort, '127.0.0.1');
 
   exposeDisplayMethod(server, "showTab")
   exposeDisplayMethod(server, "clearAllTabs")
