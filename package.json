@@ -17,7 +17,7 @@
     "mocha": "3.2.0"
   },
   "dependencies": {
-    "adafruit-mcp23008-ssd1306-node-driver": "2.0.13",
+    "adafruit-mcp23008-ssd1306-node-driver": "2.0.14",
     "config": "1.24.0",
     "js-yaml": "3.7.0",
     "json-rpc2": "1.0.2"
