@@ -29,6 +29,7 @@ function initDisplayAndButtons() {
       buttons = new adafruit.FakeButtonDriver()
       console.log("Adafruit is not available, so we'll fake the display using the console")
     }
+    display.showTab(config.defaultTab)
   } catch (err) {
     console.log("Failed to load Adafruit, so we'll fake the display using the console" + err)
   }
@@ -104,7 +105,7 @@ function exposeDisplayMethod(server, methodName) {
 
 function showStartupMessage() {
   if (display && config.startupMessage) {
-    display.writeText(config.startupMessage)
+    display.writeText(config.startupMessage, 0, 0, true, config.defaultTab)
   }
 }
 

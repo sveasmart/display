@@ -2,7 +2,7 @@ displayRpcPort: 5000
 
 # Which tab to show if a button is pressed
 # Or empty if the button should be ignored.
-button0Tab: "default"
+button0Tab: "tab0"
 button1Tab: "tab1"
 button2Tab: "tab2"
 
@@ -13,7 +13,7 @@ startupMessage: "Starting up..."
 # If a defaultTab and returnToDefaultAfterXSeconds is set,
 # then it will automatically show that tab if no button is pressed
 # in X seconds.
-defaultTab: "default"
+defaultTab: "tab0"
 returnToDefaultAfterXSeconds: 30
 
 # If true, all display calls are logged to console,
