@@ -66,6 +66,7 @@ function startRpcServerAndExposeDisplayMethods() {
   exposeDisplayMethod(server, "setImage")
   exposeDisplayMethod(server, "setTexts")
   exposeDisplayMethod(server, "writeText")
+  exposeDisplayMethod(server, "setRowText")
 }
 
 function exposeDisplayMethod(server, methodName) {
