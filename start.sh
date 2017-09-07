@@ -2,6 +2,6 @@
 
 cd /home/pi/apps/display
 #sudo npm prune
-sudo npm install
+#sudo npm install
 sudo npm start
 
