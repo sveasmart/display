@@ -20,3 +20,15 @@ returnToDefaultAfterXSeconds: 30
 # even if there is a real display connected.
 # Note that if no display is connected, then all calls are logged to the console anyway
 logCalls: false
+
+
+# If true, the full contents of the display will be shown on the console
+# whenever the display contents are changed.
+# ---------------------------
+# |           |             |
+# | Like this |             |
+# |           |             |
+# ---------------------------
+#
+# If there is content on multiple tabs, they are shown side by side like above.
+simulateDisplayOnConsole: true
