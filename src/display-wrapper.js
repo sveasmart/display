@@ -142,8 +142,8 @@ class DisplayWrapper {
 
 
     //Draw the top line
-    let horizontalLine = ' ' + '-'.repeat(16)
-    let longHorizontalLine = horizontalLine.repeat(tabs.length) + '\n'
+    let horizontalLine = '-'.repeat(17)
+    let longHorizontalLine = horizontalLine.repeat(tabs.length) + '-\n'
     buf = buf + longHorizontalLine
 
     //Draw each row

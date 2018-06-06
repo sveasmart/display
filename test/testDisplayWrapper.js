@@ -30,7 +30,7 @@ function getString(name) {
   console.assert(value.trim() != "", "Empty config param " + name)
   return value
 }
-Text("writeText", 0, 0, false)
+display.writeText("writeText", 0, 0, false)
 
 display.clearAllTabs()
 
