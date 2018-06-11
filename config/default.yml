@@ -31,4 +31,4 @@ logCalls: false
 # ---------------------------
 #
 # If there is content on multiple tabs, they are shown side by side like above.
-simulateDisplayOnConsole: true
+simulateDisplayOnConsole: false
