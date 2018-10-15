@@ -10,6 +10,11 @@ exports.loadConfig = function() {
     button0Tab: config.get('button0Tab'),
     button1Tab: config.get('button1Tab'),
     button2Tab: config.get('button2Tab'),
+
+    button0NotificationPort: config.get('button0NotificationPort'),
+    button1NotificationPort: config.get('button1NotificationPort'),
+    button2NotificationPort: config.get('button2NotificationPort'),
+
     startupMessage: config.get('startupMessage'),
     defaultTab: config.get('defaultTab'),
     returnToDefaultAfterXSeconds: config.get('returnToDefaultAfterXSeconds'),

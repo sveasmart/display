@@ -3,9 +3,9 @@ displayRpcPort: 5000
 # If any of these are set to a non-zero value,
 # then the display will send notifications via RPC to that port
 # when that button is pressed.
-button1NotificationPort:
-button2NotificationPort:
-button3NotificationPort:
+button0NotificationPort: 6000
+button1NotificationPort: 6001
+button2NotificationPort: 6002
 
 # Which tab to show if a button is pressed
 # Or empty if the button should be ignored.
