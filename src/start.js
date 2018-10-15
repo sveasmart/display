@@ -15,6 +15,22 @@ function buttonPressed(buttonId) {
   } else {
     console.log("Button " + buttonId + " pressed. Ignoring it.")
   }
+  sendButtonClickedViaRpc(buttonId)
+}
+
+function sendButtonClickedViaRpc(buttonId) {
+  const notificationPort = config["button" + buttonId + "NotificationPort"]
+  if (notificationPort) {
+    console.log("Will send button notification to RPC port " + notificationPort)
+    const rpcClient = rpc.Client.$create(notificationPort, '127.0.0.1');
+    rpcClient.call("buttonClicked", [], (err, res) => {
+      if (err) {
+        console.log("Failed to send buttonClick event via RPC! Could be temporary.", err)
+      }
+    })
+  }
+
+
 }
 
 function initDisplayAndButtons() {
