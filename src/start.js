@@ -1,5 +1,6 @@
 var rpc = require('json-rpc2');
-var config = require('./meter-config').loadConfig()
+var config = require('./display-config').loadConfig()
+var DisplayWrapper = require('./display-wrapper')
 
 var display = null
 var buttons = null
@@ -44,6 +45,9 @@ function initDisplayAndButtons() {
       display = new adafruit.FakeDisplayDriver()
       buttons = new adafruit.FakeButtonDriver()
       console.log("Adafruit is not available, so we'll fake the display using the console")
+    }
+    if (config.simulateDisplayOnConsole) {
+      display = new DisplayWrapper(display, config.defaultTab)      
     }
     display.showTab(config.defaultTab)
   } catch (err) {
